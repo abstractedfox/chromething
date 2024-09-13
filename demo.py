@@ -4,4 +4,6 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template('index.html')
+    
+    response = make_response(render_template('index.html'))
+    response.headers["Permissions-Policy"] = "browsing-topics"
